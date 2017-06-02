@@ -1,4 +1,4 @@
-rootProject.name = 'SpringCloud'
+rootProject.name = 'oo'
 include 'base/discovery'
 include 'base/config'
 include 'base/gateway'
