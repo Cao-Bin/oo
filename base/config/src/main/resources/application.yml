@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: ${uri:https://github.com/Cao-Bin/test.git}
+#          username: ${username:xxx}
+#          password: ${password:xxx}
+
+
+
