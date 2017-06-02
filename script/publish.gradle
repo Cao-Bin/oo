@@ -15,9 +15,9 @@ publishing {
             version project.hasProperty("jar_version")?jar_version:project.getVersion()
 
             from components.java
-            artifact sourceJar {
-                classifier "sources"
-            }
+//            artifact sourceJar {
+//                classifier "sources"
+//            }
             pom.withXml {
                 asNode().dependencies.'*'.findAll() {
                     it.scope.text() == 'runtime' && project.configurations.compile.allDependencies.find { dep ->
@@ -33,5 +33,6 @@ publishing {
 
 
 task sourceJar(type: Jar) {
+    classifier "sources"
     from sourceSets.main.allJava
 }
