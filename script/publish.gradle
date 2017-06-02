@@ -32,6 +32,6 @@ publishing {
 }
 
 
-task sourceJar(type: Jar) {
+task sourceJar(type: Jar,overwrite: true) {
     from sourceSets.main.allJava
 }
