@@ -1,0 +1,19 @@
+apply from: "${scriptUrlPrefix}/common-ext.gradle"
+apply from: "${scriptUrlPrefix}/repository.gradle"
+apply from: "${scriptUrlPrefix}/publish.gradle"
+apply plugin: 'java'
+apply plugin: 'idea'
+
+//下载源码
+idea {
+    module {
+        downloadSources = true
+    }
+}
+
+//不缓存变化版本
+configurations.all {
+    resolutionStrategy {
+        cacheChangingModulesFor 0, 'seconds'
+    }
+}

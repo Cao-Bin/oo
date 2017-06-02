@@ -1,0 +1,5 @@
+apply from: "${scriptUrlPrefix}/common.gradle"
+apply from: "${scriptUrlPrefix}/springDependency.gradle"
+apply plugin: 'propdeps'
+apply plugin: 'propdeps-idea'
+compileJava.dependsOn(processResources)

@@ -1,0 +1,7 @@
+rootProject.name = 'SpringCloud'
+include 'base/discovery'
+include 'base/config'
+include 'base/gateway'
+include 'business/users'
+include 'business/mg'
+

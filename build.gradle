@@ -1,0 +1,20 @@
+apply from: "${scriptUrlPrefix}/common-ext.gradle"
+
+buildscript {
+    ext {
+        guavaVerson = '19.0'
+        commonsLang3Version = '3.4'
+        jodaTimeVersion = '2.9.4'
+        commonsCollections4Version = '4.1'
+        commonVersion = '1.0.0-SNAPSHOT'
+    }
+
+    //引入为服务通用的buildscript脚本
+    apply from: "${scriptUrlPrefix}/buildscript.gradle"
+}
+
+subprojects{
+    apply from: "${scriptUrlPrefix}/ms-common.gradle"
+    group 'com.cb'
+    version '1.0.0-SNAPSHOT'
+}

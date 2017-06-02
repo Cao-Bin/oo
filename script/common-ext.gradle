@@ -1,0 +1,7 @@
+ext{
+    nexusIp='maven.aliyun.com:80'
+    scriptUrlPrefix='https://raw.githubusercontent.com/Cao-Bin/oo/script/master'
+    springBootVersion = '1.3.7.RELEASE'
+    springCloudVersion = 'Brixton.SR6'
+    springCloudStreamVersion = 'Brooklyn.SR1'
+}

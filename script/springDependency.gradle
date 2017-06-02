@@ -1,0 +1,27 @@
+//插件可用到mavenBom
+apply plugin: "io.spring.dependency-management"
+apply plugin: 'java'
+apply plugin: 'idea'
+
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        mavenBom "org.springframework.boot:spring-boot-starter-parent:${springBootVersion}"
+        mavenBom "org.springframework.cloud:spring-cloud-stream-dependencies:${springCloudStreamVersion}"
+    }
+    //spring 设置动态版本
+    resolutionStrategy {
+        cacheChangingModulesFor 0, 'seconds'
+        //版本冲突为失败
+//        failOnVersionConflict()
+    }
+}
+
+//排除spring boot logging
+dependencies {
+    configurations {
+        all*.exclude module: 'spring-boot-starter-logging'
+        all*.exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+    }
+}

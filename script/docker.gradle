@@ -1,0 +1,110 @@
+// 使用文件需要加入依赖　classpath('se.transmode.gradle:gradle-docker:1.2')
+//必须包含　appName and dockerPort
+apply plugin: 'docker'
+
+ext{
+    dockerJarName = "/app.jar"
+    tagetJarName = project.hasProperty("appName") ? appName : project.name
+}
+
+docker{
+    baseImage "hub.cdit.beecloud.com/base/java:8"
+    maintainer 'SunHeng'
+}
+
+
+
+task buildDocker(type: Docker, dependsOn: build) {
+    //如果需要appName,打开注释
+//    applicationName = appName
+    //jenkins需要推送镜像
+    push = isInJenkins()
+//    dockerfile = file('src/main/docker/Dockerfile')
+    registry='hub.cdit.beecloud.com/support'
+    tagVersion = getJenkinsBuildCode()
+    applicationName = project.hasProperty("imageName") ? imageName : project.name
+    doFirst {
+        copy {
+            from jar
+            into stageDir
+        }
+    }
+
+    //default docker command, replace the Dockerfile
+    //ref:https://github.com/Transmode/gradle-docker
+    volume('/data')
+    addFile( "${tagetJarName}-${version}.jar", dockerJarName)
+    runCommand("bash -c 'touch $dockerJarName'")
+//    setEnvironment("spring.profiles.active", getSpringActiveProfiles())
+    exposePort(getDockerPort(tagetJarName))
+    entryPoint(["java","-Djava.security.egd=file:/dev/./urandom","-Dspring.profiles.active=${getSpringActiveProfiles()}","-jar",dockerJarName])
+}
+
+
+/**
+ * 判断是否有jenkins
+ * @return
+ */
+boolean isInJenkins() {
+    Map<String, String> map = System.getenv()
+
+    if (map == null) {
+        return false
+    }
+    String str = map.get("Path")
+    if (str != null) {
+        //it's windows
+        return false;
+    } else {
+        str = ""
+        Iterator it = map.iterator();
+        while (it.hasNext()) {
+            str += it.next();
+        }
+        if (str.contains("jenkins")) {
+            return true
+        } else {
+            return false;
+        }
+    }
+    return false
+}
+
+/**
+ * 获取Jenkins tag 号
+ * @return
+ */
+def getJenkinsBuildCode() {
+    boolean flag = isInJenkins();
+    if (flag) {
+        ext.env = System.getenv()
+        return env.GIT_TAG_NAME != null ? env.GIT_TAG_NAME : env.BUILD_NUMBER?.toInteger()
+    } else {
+        return "local$version"
+    }
+}
+
+/**
+ * 获取Spring active profiles
+ */
+def getSpringActiveProfiles() {
+    ext.env = System.getenv()
+    return env.SPRING_PROFILES_ACTIVE != null ? env.SPRING_PROFILES_ACTIVE : 'default'
+}
+
+
+
+
+def getDockerPort(String projectName) {
+    if("discovery".equalsIgnoreCase(projectName)){
+        return 8761
+    }
+    if("config".equalsIgnoreCase(projectName)){
+        return 8888
+    }
+    if("gateway".equalsIgnoreCase(projectName)){
+        return 10000
+    }
+
+    return 9000
+}
