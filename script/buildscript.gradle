@@ -2,11 +2,12 @@ apply from: "https://raw.githubusercontent.com/Cao-Bin/oo/master/script/common-e
 project.buildscript.repositories({
     mavenLocal()
     maven { url "http://${nexusIp}/nexus/content/groups/public/" }
+    maven { url 'http://repo.spring.io/plugins-release' }
 })
 project.buildscript.dependencies( {
     classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
     classpath("io.spring.gradle:dependency-management-plugin:0.6.0.RELEASE")
     classpath('se.transmode.gradle:gradle-docker:1.2')
-    classpath('org.springframework.build.gradle:propdeps-plugin:0.0.10')
+    classpath('io.spring.gradle:propdeps-plugin:0.0.9.RELEASE')
 })
 
