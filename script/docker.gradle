@@ -8,8 +8,8 @@ ext{
 }
 
 docker{
-    baseImage "hub.cdit.beecloud.com/base/java:8"
-    maintainer 'SunHeng'
+    baseImage "java:8u111"
+    maintainer 'CaoBin'
 }
 
 
@@ -20,7 +20,7 @@ task buildDocker(type: Docker, dependsOn: build) {
     //jenkins需要推送镜像
     push = isInJenkins()
 //    dockerfile = file('src/main/docker/Dockerfile')
-    registry='hub.cdit.beecloud.com/support'
+//    registry='hub.cdit.beecloud.com/support'
     tagVersion = getJenkinsBuildCode()
     applicationName = project.hasProperty("imageName") ? imageName : project.name
     doFirst {
@@ -80,7 +80,7 @@ def getJenkinsBuildCode() {
         ext.env = System.getenv()
         return env.GIT_TAG_NAME != null ? env.GIT_TAG_NAME : env.BUILD_NUMBER?.toInteger()
     } else {
-        return "local$version"
+        return "local-$version"
     }
 }
 
