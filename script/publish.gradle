@@ -32,6 +32,6 @@ publishing {
 }
 
 
-//task sourceJar(type: Jar) {
-//    from sourceSets.main.allJava
-//}
+task sourceJar(type: Jar) {
+    from sourceSets.main.allJava
+}
