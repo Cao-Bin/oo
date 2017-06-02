@@ -1,4 +1,4 @@
-apply from: "${scriptUrlPrefix}/common-ext.gradle"
+apply from: "https://raw.githubusercontent.com/Cao-Bin/oo/master/script/common-ext.gradle"
 project.buildscript.repositories({
     mavenLocal()
     maven { url "http://${nexusIp}/nexus/content/groups/public/" }
