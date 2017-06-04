@@ -40,7 +40,8 @@ dependencies {
 
             //fastjson
             "com.alibaba:fastjson:1.2.30",
-
+            //dozer
+            "net.sf.dozer:dozer:5.5.1",
 
 
             //spring-kafka
