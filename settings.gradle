@@ -2,6 +2,9 @@ rootProject.name = 'oo'
 include 'base/discovery'
 include 'base/config'
 include 'base/gateway'
-include 'business/users'
+include 'business/users/users-api'
+include 'business/users/users-sdk'
+include 'business/users/users-service'
 include 'business/mg'
+
 

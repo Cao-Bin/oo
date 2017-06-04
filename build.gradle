@@ -5,6 +5,8 @@ buildscript {
         jodaTimeVersion = '2.9.4'
         commonsCollections4Version = '4.1'
         commonVersion = '1.0.0-SNAPSHOT'
+        springBootVersion = '1.0.0-SNAPSHOT'
+        springVersion = '4.2.8.RELEASE'
     }
 
     //引入为服务通用的buildscript脚本
@@ -12,7 +14,6 @@ buildscript {
 }
 
 subprojects{
-    apply from: "https://raw.githubusercontent.com/Cao-Bin/oo/master/script/ms-common.gradle"
     group 'com.cb'
     version '1.0.0-SNAPSHOT'
 }

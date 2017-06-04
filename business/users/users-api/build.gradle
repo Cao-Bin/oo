@@ -1,0 +1,13 @@
+apply from: "${scriptUrlPrefix}/buildscript.gradle"
+apply from: "${scriptUrlPrefix}/ms-common.gradle"
+
+
+dependencies {
+    compile (
+            "org.springframework:spring-web:4.2.7.RELEASE",
+            "com.netflix.hystrix:hystrix-core:1.5.3",
+            "io.springfox:springfox-swagger2:2.5.0",
+            "io.springfox:springfox-swagger-ui:2.5.0"
+    )
+}
+

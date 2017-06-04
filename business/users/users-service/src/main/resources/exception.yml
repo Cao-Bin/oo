@@ -1,0 +1,8 @@
+info:
+  description: 'exception code desc doc'
+exception:
+  10000: 'xx'
+  10001: 'xx'
+  10002: 'xx'
+  10003: 'xx.'
+  10004: 'xx.'

@@ -1,0 +1,53 @@
+Configuration:
+  status: warn
+
+  Properties: # 定义全局变量
+      Property: # 缺省配置（用于开发环境）。其他环境需要在VM参数中指定，如下：
+        #测试：-Dlog.level.console=warn -Dlog.level.xjj=trace
+        #生产：-Dlog.level.console=warn -Dlog.level.xjj=info
+          -
+            name: log.level.root
+            value: info
+          -
+            name: log.level.app
+            value: info
+          -
+            name: log.path
+            value: ./logs
+          -
+            name: log.name
+            value: app
+
+  Appenders:
+    Console:  #输出到控制台
+      name: CONSOLE
+      target: SYSTEM_OUT
+      PatternLayout:
+        pattern: "%highlight{%d{yyyy-MM-dd HH:mm:ss,SSS}:%4p %t (%F:%L) - %m%n}"
+
+    RollingFile: # 输出到文件，超过64MB归档
+      -
+        name: AppRollingFile
+        fileName: ${log.path}/${log.name}.log
+        filePattern: "$${log.path}/${log.name}.log%i.log"
+        PatternLayout:
+          pattern: "%d{yyyy-MM-dd HH:mm:ss,SSS}:%4p %t (%F:%L) - %m%n"
+        Policies:
+          SizeBasedTriggeringPolicy:
+            size: 64MB
+        DefaultRolloverStrategy:
+          max: 100
+  Loggers:
+    Root:
+      level: ${log.level.root}
+      AppenderRef:
+        - ref: CONSOLE
+        - ref: AppRollingFile
+    Logger: # 为com.xjj包配置特殊的Log级别，方便调试
+      -
+        name: com.beecloud
+        additivity: false
+        level: ${log.level.app}
+        AppenderRef:
+          - ref: CONSOLE
+          - ref: AppRollingFile

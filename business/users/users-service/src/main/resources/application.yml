@@ -1,0 +1,62 @@
+redis:
+  pool:
+    maxIdle: 5
+    maxTotal: 30
+    maxWait: 9000
+  db: 1
+  shareDb: 0
+  ip: redis
+  port: 6379
+#  passWord: f0UKLEv7
+  timeOut: 30000
+
+
+server:
+  port: 9001
+eureka:
+  instance:
+    hostname: users
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/
+
+spring:
+  aop:
+    auto: true
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/test?useunicode=true&characterEncoding=utf8
+    username: root
+    password: root
+    max-active: 5
+    min-active: 2
+
+  http:
+    encoding:
+      charset: UTF-8
+      enable: true
+      force: true
+  data:
+    mongodb:
+      host: 127.0.0.1
+      port: 27017
+      database: users
+
+
+kafka:
+  cluster:
+      address: kafka:9092
+      consumer:
+        group-id: users
+        auto-commit-offset: true
+        poll-timeout: 3000
+
+
+
+mybatis:
+  config-location: classpath:config/mybatis/mybatis.xml
+  type-aliases-package: com.cb.users.entity.mysql
+  mapper-locations: classpath:config/mybatis/mapper/*.xml

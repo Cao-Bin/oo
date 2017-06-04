@@ -1,0 +1,22 @@
+apply from: "${scriptUrlPrefix}/buildscript.gradle"
+apply from: "${scriptUrlPrefix}/ms-common.gradle"
+
+jar {
+	baseName = 'users-sdk'
+}
+
+dependencies {
+
+	compile project(':business/users/users-api')
+	compile ("org.springframework.boot:spring-boot-starter-aop:${springBootVersion}")
+	compile ("org.springframework:spring-web:4.2.7.RELEASE") {
+		exclude group:'commons-logging',module:'commons-logging'
+		exclude group:'org.springframework'
+	}
+	compile("org.springframework.cloud:spring-cloud-netflix-core:1.1.6.RELEASE") {
+		exclude group:'org.springframework.boot',module:'spring-boot'
+		exclude group:'org.springframework.boot',module:'spring-boot-autoconfigure'
+	}
+}
+
+

@@ -1,0 +1,57 @@
+apply from: "${scriptUrlPrefix}/buildscript.gradle"
+apply from: "${scriptUrlPrefix}/ms-common.gradle"
+apply from: "${scriptUrlPrefix}/bootApp.gradle"
+
+buildscript {
+    ext {
+        guavaVerson = '19.0'
+        commonsLang3Version = '3.4'
+        jodaTimeVersion = '2.9.4'
+        springVersion = '4.2.8.RELEASE'
+        jacksonVersion = '2.6.7'
+        commonsCollections4Version = '4.1'
+        gsonVerson = '2.7'
+        commonVersion = '1.0.0-SNAPSHOT'
+    }
+
+}
+
+dependencies {
+    compile project(':business/users/users-api')
+    compile(
+            "org.springframework.cloud:spring-cloud-starter-feign",
+            "org.springframework.cloud:spring-cloud-config-client",
+            "org.springframework.boot:spring-boot-starter-web",
+            "org.springframework.cloud:spring-cloud-starter-eureka",
+
+            "com.google.guava:guava:${guavaVerson}",
+            "org.apache.commons:commons-collections4:${commonsCollections4Version}",
+            "org.apache.commons:commons-lang3:3.5",
+
+            "com.jayway.jsonpath:json-path-assert:2.2.0",
+            "org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1",
+            "tk.mybatis:mapper-spring-boot-starter:1.1.1",
+            "com.github.pagehelper:pagehelper-spring-boot-starter:1.1.0",
+            "org.mybatis:mybatis-typehandlers-jsr310:1.0.1",
+            "com.alibaba:druid:1.0.25",
+            "mysql:mysql-connector-java:5.1.21",
+            "com.zaxxer:HikariCP:2.3.+",
+
+
+            //fastjson
+            "com.alibaba:fastjson:1.2.30",
+
+
+
+            //spring-kafka
+            'org.springframework.kafka:spring-kafka:1.2.1.RELEASE',
+            "org.springframework:spring-messaging:4.3.7.RELEASE",
+            'com.lmax:disruptor:3.3.6'
+
+    )
+
+    //embedded mysql
+    testCompile('ch.vorburger.mariaDB4j:mariaDB4j:2.2.2')
+}
+
+

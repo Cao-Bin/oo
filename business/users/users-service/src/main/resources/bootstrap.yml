@@ -1,0 +1,13 @@
+info:
+  description: 'tsp platform.'
+#HOSTNAME: 10.28.248.109
+spring:
+#  profiles:
+#    active: dev
+  application:
+    name: users
+  cloud:
+    config:
+      uri: http://config:8888
+
+

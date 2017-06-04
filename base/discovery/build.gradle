@@ -1,5 +1,7 @@
 apply from: "${scriptUrlPrefix}/buildscript.gradle"
 apply from: "${scriptUrlPrefix}/bootApp.gradle"
+apply from: "${scriptUrlPrefix}/ms-common.gradle"
+
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.cloud:spring-cloud-starter-eureka-server')
