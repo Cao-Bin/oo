@@ -43,6 +43,8 @@ dependencies {
             //dozer
             "net.sf.dozer:dozer:5.5.1",
 
+            "org.aspectj:aspectjweaver:1.8.9",
+
 
             //spring-kafka
             'org.springframework.kafka:spring-kafka:1.2.1.RELEASE',

@@ -16,6 +16,7 @@ public class UserControllerImpl implements UserController {
     private UserService userService;
     @Override
     public List<UserVO> users(@RequestHeader String TOKEN, @RequestParam(required = false) String username,@RequestParam Integer pageNum,@RequestParam Integer pageSize) {
+        int a=1/0;
         return userService.findUsers( username, pageNum,  pageSize);
     }
 }

@@ -2,10 +2,10 @@ package com.cb.users.api.exception;
 
 import com.netflix.hystrix.exception.HystrixBadRequestException;
 
-public abstract class ApplicationException extends HystrixBadRequestException {
+public abstract class BusinessException extends HystrixBadRequestException {
     private String code;
 
-    public ApplicationException(String code, String msg) {
+    public BusinessException(String code, String msg) {
         super(msg);
         this.code = code;
     }
