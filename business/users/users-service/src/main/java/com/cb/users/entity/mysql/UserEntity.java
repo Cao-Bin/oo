@@ -1,5 +1,7 @@
 package com.cb.users.entity.mysql;
 
+import com.cb.users.entity.enums.Gender;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;

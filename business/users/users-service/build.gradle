@@ -21,8 +21,9 @@ dependencies {
     compile(
             "org.springframework.cloud:spring-cloud-starter-feign",
             "org.springframework.cloud:spring-cloud-config-client",
-            "org.springframework.boot:spring-boot-starter-web",
             "org.springframework.cloud:spring-cloud-starter-eureka",
+            "org.springframework.boot:spring-boot-starter-web",
+            "org.springframework.boot:spring-boot-starter-data-mongodb",
 
             "com.google.guava:guava:${guavaVerson}",
             "org.apache.commons:commons-collections4:${commonsCollections4Version}",

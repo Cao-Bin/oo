@@ -1,6 +1,6 @@
 package com.cb.users.service.disruptor;
 
-import com.cb.users.entity.kafka.Gender;
+import com.cb.users.entity.enums.Gender;
 import com.cb.users.entity.kafka.UserKafka;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

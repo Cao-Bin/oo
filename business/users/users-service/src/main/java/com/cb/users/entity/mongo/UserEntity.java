@@ -1,34 +1,50 @@
-package com.cb.users.entity.kafka;
-
+package com.cb.users.entity.mongo;
 
 import com.cb.users.entity.enums.Gender;
-import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.io.Serializable;
 import java.util.Date;
 
-import static org.apache.commons.lang3.builder.ToStringStyle.JSON_STYLE;
-
 /**
- * 命令记录表
- *
- * @author
- * @date
+ * Created by oo on 17-6-4.
  */
-public class UserKafka implements Serializable {
+@Document(collection = "user")
+public class UserEntity {
 
-    private Long id;
+    @Id
+    private String id;
+
+    /**
+     * 用户名
+     */
     private String username;
+
+    /**
+     * 密码
+     */
     private String password;
-    private Integer age;
+
+    /**
+     * 年龄
+     */
+    private Long age;
+
+    /**
+     * 生日
+     */
     private Date birthday;
+
+    /**
+     * 性别
+     */
     private Gender gender;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -48,11 +64,11 @@ public class UserKafka implements Serializable {
         this.password = password;
     }
 
-    public Integer getAge() {
+    public Long getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(Long age) {
         this.age = age;
     }
 
@@ -71,10 +87,4 @@ public class UserKafka implements Serializable {
     public void setGender(Gender gender) {
         this.gender = gender;
     }
-
-    @Override
-   public String toString() {
-       return ReflectionToStringBuilder.toString(this, JSON_STYLE);
-   }
-
 }

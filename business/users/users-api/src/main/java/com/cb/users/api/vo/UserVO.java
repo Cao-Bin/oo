@@ -1,5 +1,7 @@
 package com.cb.users.api.vo;
 
+import com.cb.users.api.vo.enums.Gender;
+
 import java.util.Date;
 
 public class UserVO {

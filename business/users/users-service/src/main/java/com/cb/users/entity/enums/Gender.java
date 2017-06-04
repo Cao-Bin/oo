@@ -1,4 +1,4 @@
-package com.cb.users.api.vo;
+package com.cb.users.entity.enums;
 
 /**
  * Created by oo on 17-6-4.

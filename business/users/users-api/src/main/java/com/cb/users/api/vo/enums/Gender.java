@@ -1,4 +1,4 @@
-package com.cb.users.entity.mysql;
+package com.cb.users.api.vo.enums;
 
 /**
  * Created by oo on 17-6-4.
