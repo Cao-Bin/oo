@@ -1,5 +1,6 @@
 package com.cb.users.config;
 
+import com.alibaba.fastjson.parser.ParserConfig;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter4;
@@ -20,6 +21,7 @@ public class FastJsonHttpMessageConvertConfiguration {
     @Bean
     FastJsonConfig fastJsonConfig() {
         FastJsonConfig jsonConfig = new FastJsonConfig();
+        ParserConfig.getGlobalInstance().addAccept("com.cb.");//解决redis @Type问题
         jsonConfig.setCharset(Charsets.UTF_8);
         jsonConfig.setSerializerFeatures(SerializerFeature.WriteNonStringKeyAsString, SerializerFeature.QuoteFieldNames, SerializerFeature.SortField);
         return  jsonConfig;
