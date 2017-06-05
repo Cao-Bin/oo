@@ -21,8 +21,8 @@
 172.18.0.200   mysql   
 172.18.0.201   redis    
 172.18.0.202   mongo    
-127.0.0.1   kafka   
-172.18.0.203	config  
-172.18.0.204	gateway     
-172.18.0.205	discovery   
+172.18.0.203   kafka   
+172.18.0.204	config  
+172.18.0.205	gateway     
+172.18.0.206	discovery   
 127.0.0.1	oo  
