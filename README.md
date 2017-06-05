@@ -17,9 +17,12 @@
 15. 请求日志输出 ok
 16. docker ok
 
-本地调试/etc/hosts配置
-172.18.0.200	config
-172.18.0.201	gateway
-172.18.0.202	discovery
-127.0.0.1	oo
-127.0.0.1   kafka
+本地调试/etc/hosts配置  
+172.18.0.200   mysql   
+172.18.0.201   redis    
+172.18.0.202   mongo    
+127.0.0.1   kafka   
+172.18.0.203	config  
+172.18.0.204	gateway     
+172.18.0.205	discovery   
+127.0.0.1	oo  
