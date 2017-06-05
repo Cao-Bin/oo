@@ -9,4 +9,6 @@ import java.util.List;
  */
 public interface UserService {
     List<UserVO> findUsers(String username, Integer pageNum, Integer pageSize);
+
+    UserVO findUser(Long id);
 }

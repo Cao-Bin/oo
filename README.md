@@ -1,7 +1,7 @@
 # oo SpringCloud  技术框架整合
 
 1. kafka ok
-2. redis
+2. redis ok
 3. mongodb ，mysql（mybatis ） ok
 4. 数据版本控制（乐观锁） ok
 5. 接口版本控制 ok
@@ -15,3 +15,4 @@
 13. swagger ok
 14. 异常捕获 ok
 15. 请求日志输出 ok
+16. docker ok

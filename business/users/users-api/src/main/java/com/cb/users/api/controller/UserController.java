@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
-@Api(tags = "用户", description = "用户")
+@Api(tags = "用户", description = "用户CRUD")
 public interface UserController {
 
     @ApiOperation(value = "用户列表")
@@ -27,5 +27,12 @@ public interface UserController {
                         /*@ApiParam(required = true) */ Integer pageSize
     );
 
-
+    @ApiOperation(value = "查找制定用户")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "成功"),
+            @ApiResponse(code = 400, message = "业务错误", response = ErrorResponseVO.class),
+            @ApiResponse(code = 500, message = "系统内部错误", response = ErrorResponseVO.class)
+    })
+    @RequestMapping(value = "/v1/{id}", method = RequestMethod.GET)
+    UserVO user(String TOKEN, Long id);
 }
