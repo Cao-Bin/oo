@@ -2,7 +2,7 @@ package com.cb.users.service.kafka.impl;
 
 import com.cb.users.entity.kafka.UserKafka;
 import com.cb.users.service.disruptor.DisruptorEvent;
-import com.cb.users.service.json.JsonService;
+import com.cb.users.util.JsonUtil;
 import com.cb.users.util.KafkaTopicUtil;
 import com.lmax.disruptor.dsl.Disruptor;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -26,8 +26,6 @@ import java.util.List;
 public class UserKafkaTopicConsumerService {
     @Autowired
     private Disruptor<DisruptorEvent> disruptor;
-    @Autowired
-    private JsonService jsonService;
      private final static Logger LOGGER = LoggerFactory.getLogger(UserKafkaTopicConsumerService.class);
 
     @KafkaListener(topics = KafkaTopicUtil.THIRD_IN_USER, id = "userKafkaTopicConsumer")
@@ -35,7 +33,7 @@ public class UserKafkaTopicConsumerService {
         LOGGER.debug("Receive records count:{}", records.size());
 
         records.forEach(record -> {
-            UserKafka userKafka = jsonService.toBean(record.value(), UserKafka.class);
+            UserKafka userKafka = JsonUtil.toBean(record.value(), UserKafka.class);
             disruptor.getRingBuffer().publishEvent(this::translateTo, userKafka);
         });
     }

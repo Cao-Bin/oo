@@ -1,7 +1,7 @@
 package com.cb.users.service.kafka.impl;
 
-import com.cb.users.service.json.JsonService;
 import com.cb.users.service.kafka.KafkaPublishService;
+import com.cb.users.util.JsonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +24,11 @@ public class KafkaPublishServiceJsonImpl implements KafkaPublishService {
     private final static Logger LOGGER = LoggerFactory.getLogger(KafkaPublishServiceJsonImpl.class);
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
-    @Autowired
-    private JsonService jsonService;
     private final static Integer one_second = 1;
 
     @Override
     public void publish(String topic, Object data) {
-        publishJsonString(topic, jsonService.toJson(data));
+        publishJsonString(topic, JsonUtil.toJson(data));
     }
 
     private void publishJsonString(String topic, String data) {

@@ -43,6 +43,19 @@ public class UserEntity {
     private Gender gender;
 
     /**
+     * 年龄
+     */
+    private Long version;
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
+    }
+
+    /**
      * 获取ID
      *
      * @return id - ID

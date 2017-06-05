@@ -26,5 +26,7 @@ CREATE TABLE `user` (
   `age` int(11) DEFAULT NULL COMMENT '年龄',
   `birthday` datetime DEFAULT NULL COMMENT '生日',
   `gender` varchar(255) DEFAULT NULL COMMENT '性别',
+  `version` int(11) DEFAULT NULL COMMENT '乐观锁',
+
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;

@@ -11,5 +11,7 @@
     <result column="age" jdbcType="INTEGER" property="age" />
     <result column="birthday" jdbcType="TIMESTAMP" property="birthday" />
     <result column="gender" jdbcType="VARCHAR" property="gender" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+
   </resultMap>
 </mapper>
