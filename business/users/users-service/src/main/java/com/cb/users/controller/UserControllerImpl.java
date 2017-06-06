@@ -4,10 +4,7 @@ import com.cb.users.api.controller.UserController;
 import com.cb.users.api.vo.UserVO;
 import com.cb.users.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,5 +20,20 @@ public class UserControllerImpl implements UserController {
     @Override
     public UserVO user(@RequestHeader String TOKEN, @PathVariable Long id) {
         return userService.findUser(id);
+    }
+
+    @Override
+    public UserVO insert(@RequestHeader String TOKEN, @RequestBody UserVO userVO) {
+        return userService.insert(userVO);
+    }
+
+    @Override
+    public UserVO update(@RequestHeader String TOKEN, @RequestBody UserVO userVO, @PathVariable Long id) {
+        return userService.update(userVO);
+    }
+
+    @Override
+    public void delete(@RequestHeader String TOKEN, @PathVariable Long id) {
+        userService.delete(id);
     }
 }

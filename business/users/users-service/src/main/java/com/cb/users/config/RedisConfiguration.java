@@ -27,12 +27,13 @@ public class RedisConfiguration {
     public KeyGenerator keyGenerator() {
         return (target, method, params) -> {
             StringBuilder sb = new StringBuilder();
-            sb.append(target.getClass().getName());
-            sb.append(method.getName());
+            sb.append(target.getClass().getName()).append(".");
+            sb.append(method.getName()).append(".");
             for (Object obj : params) {
-                sb.append(obj.toString());
+                sb.append(obj.toString()).append(".");
             }
-            return sb.toString();
+            String key = sb.toString();
+            return key.endsWith(".")?key.substring(0,key.length()-1):key;
         };
 
     }

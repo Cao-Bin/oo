@@ -29,10 +29,33 @@ public interface UserController {
 
     @ApiOperation(value = "查找指定用户")
     @ApiResponses({
-            @ApiResponse(code = 200, message = "成功"),
             @ApiResponse(code = 400, message = "业务错误", response = ErrorResponseVO.class),
             @ApiResponse(code = 500, message = "系统内部错误", response = ErrorResponseVO.class)
     })
-    @RequestMapping(value = "/v1/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/v1/users/{id}", method = RequestMethod.GET)
     UserVO user(String TOKEN, Long id);
+
+    @ApiOperation(value = "保存")
+    @ApiResponses({
+            @ApiResponse(code = 400, message = "业务错误", response = ErrorResponseVO.class),
+            @ApiResponse(code = 500, message = "系统内部错误", response = ErrorResponseVO.class)
+    })
+    @RequestMapping(value = "/v1/users", method = RequestMethod.POST)
+    UserVO insert( String TOKEN,  UserVO userVO);
+
+    @ApiOperation(value = "修改")
+    @ApiResponses({
+            @ApiResponse(code = 400, message = "业务错误", response = ErrorResponseVO.class),
+            @ApiResponse(code = 500, message = "系统内部错误", response = ErrorResponseVO.class)
+    })
+    @RequestMapping(value = "/v1/users/{id}", method = RequestMethod.PUT)
+    UserVO update( String TOKEN,  UserVO userVO, Long id);
+
+    @ApiOperation(value = "删除")
+    @ApiResponses({
+            @ApiResponse(code = 400, message = "业务错误", response = ErrorResponseVO.class),
+            @ApiResponse(code = 500, message = "系统内部错误", response = ErrorResponseVO.class)
+    })
+    @RequestMapping(value = "/v1/users/{id}", method = RequestMethod.DELETE)
+    void delete( String TOKEN,  Long id);
 }

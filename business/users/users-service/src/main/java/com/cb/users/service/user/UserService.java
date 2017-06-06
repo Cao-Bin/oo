@@ -11,4 +11,10 @@ public interface UserService {
     List<UserVO> findUsers(String username, Integer pageNum, Integer pageSize);
 
     UserVO findUser(Long id);
+
+    UserVO insert(UserVO userVO);
+
+    UserVO update(UserVO userVO);
+
+    void delete(Long id);
 }
