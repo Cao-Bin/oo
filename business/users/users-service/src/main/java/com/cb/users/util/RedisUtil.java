@@ -56,6 +56,27 @@ public class RedisUtil {
     }
 
     /**
+     * 自增
+     * @param k
+     * @param growthLength
+     * @return
+     */
+    public Long increment(String k, Long growthLength) {
+        String key = buildKey(KEY_PREFIX_VALUE,k);
+        return redisTemplate.opsForValue().increment(key,growthLength);
+    }
+
+    /**
+     * 自增，步长=1
+     * @param k
+     * @return
+     */
+    public Long increment(String k) {
+        String key = buildKey(KEY_PREFIX_VALUE,k);
+        return redisTemplate.opsForValue().increment(key,1);
+    }
+
+    /**
      * 缓存value操作
      *
      * @param k
