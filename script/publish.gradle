@@ -15,7 +15,8 @@ publishing {
     publications {
         maven(MavenPublication) {
             groupId project.hasProperty("jar_group_id")?jar_group_id:project.getGroup()
-            artifactId project.hasProperty("jar_artifact_id")?jar_artifact_id:project.getName()
+            artifactId "user-sdk"
+//            artifactId project.hasProperty("jar_artifact_id")?jar_artifact_id:project.getName()
 
             version project.hasProperty("jar_version")?jar_version:project.getVersion()
             from components.java
