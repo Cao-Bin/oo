@@ -6,7 +6,7 @@
 4. 数据版本控制（乐观锁） ok
 5. 接口版本控制 ok
 6. distruptor 事件环（考虑一个业务一个service） ok
-7. mq doing
+7. mq ok
 8. token
 9. 幂等 
 10. 分布式锁
