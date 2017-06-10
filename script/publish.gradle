@@ -17,7 +17,7 @@ publishing {
 //            artifactId project.hasProperty("jar_artifact_id")?jar_artifact_id:project.getName()
 //
 //            version project.hasProperty("jar_version")?jar_version:project.getVersion()
-
+logger.info(project.getName())
             from components.java
             artifact sourceJar {
                 classifier "sources"
