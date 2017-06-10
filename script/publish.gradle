@@ -7,9 +7,10 @@ task sourceJar(type: Jar) {
 
 publishing {
     repositories {
-        maven {
-            url "/home/oo/.m2/repository"
-        }
+//        maven {
+//            url "/home/oo/.m2/repository"
+//        }
+        mavenLocal()
     }
     publications {
         maven(MavenPublication) {
