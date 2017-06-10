@@ -9,13 +9,6 @@ import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-/**
- * Created with IntelliJ IDEA.
- * User: hengsun
- * Date: 5/9/17
- * Time: 5:12 PM
- * Description:
- */
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)//多实例
 @Component
 public class UserWorkHandler implements WorkHandler<DisruptorEvent>{

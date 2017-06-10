@@ -12,19 +12,12 @@ import org.springframework.util.concurrent.ListenableFuture;
 
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created with IntelliJ IDEA.
- * User: hengsun
- * Date: 5/8/17
- * Time: 5:56 PM
- * Description:
- */
 @Service
 public class KafkaPublishServiceJsonImpl implements KafkaPublishService {
     private final static Logger LOGGER = LoggerFactory.getLogger(KafkaPublishServiceJsonImpl.class);
+    private final static Integer one_second = 1;
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
-    private final static Integer one_second = 1;
 
     @Override
     public void publish(String topic, Object data) {
@@ -37,7 +30,7 @@ public class KafkaPublishServiceJsonImpl implements KafkaPublishService {
             ListenableFuture<SendResult<String, String>> send = kafkaTemplate.send(topic, data);
             send.get(one_second, TimeUnit.SECONDS);
         }catch (Throwable e) {
-            LOGGER.error("publishNotify kafka message failed", e);
+            LOGGER.error("publish message failed", e);
         }
     }
 }

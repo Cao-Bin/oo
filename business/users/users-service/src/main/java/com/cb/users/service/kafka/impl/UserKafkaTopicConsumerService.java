@@ -15,18 +15,11 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-/**
- * Created with IntelliJ IDEA.
- * User: hengsun
- * Date: 5/9/17
- * Time: 3:37 PM
- * Description: vg消息上传
- */
 @Component
 public class UserKafkaTopicConsumerService {
+    private final static Logger LOGGER = LoggerFactory.getLogger(UserKafkaTopicConsumerService.class);
     @Autowired
     private Disruptor<DisruptorEvent> disruptor;
-     private final static Logger LOGGER = LoggerFactory.getLogger(UserKafkaTopicConsumerService.class);
 
     @KafkaListener(topics = KafkaTopicUtil.THIRD_IN_USER, id = "userKafkaTopicConsumer")
     public void consumerKafkaRecords(@Payload  List<ConsumerRecord<String, String>> records) {
