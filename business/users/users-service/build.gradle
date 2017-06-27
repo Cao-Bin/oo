@@ -46,6 +46,8 @@ dependencies {
             //dozer
             "net.sf.dozer:dozer:5.5.1",
 
+            "com.xiaoleilu:hutool-all:3.0.7",
+
             "org.aspectj:aspectjweaver:1.8.9",
 
 
