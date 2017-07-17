@@ -27,6 +27,7 @@ dependencies {
             "org.springframework.boot:spring-boot-starter-redis",
             "org.springframework.boot:spring-boot-starter-amqp",
 
+            "com.vividsolutions:jts-core:1.14.0",
             "com.google.guava:guava:${guavaVerson}",
             "org.apache.commons:commons-collections4:${commonsCollections4Version}",
             "org.apache.commons:commons-lang3:3.5",
