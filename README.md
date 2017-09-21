@@ -10,12 +10,14 @@
 8. token
 9. 幂等 
 10. 分布式锁
-11. TCC
+11. 最终一致性
 12. dozer ok
 13. swagger ok
 14. 异常捕获 ok
 15. 请求日志输出 ok
 16. docker ok
+17. 跨域请求
+18. 国际化
 
 本地调试/etc/hosts配置  
 127.0.0.1   mysql   
