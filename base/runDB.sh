@@ -13,5 +13,6 @@ docker run -d --network test --ip 172.18.0.202  -p 27017:27017 --hostname mongo 
 docker run -d --network test --ip 172.18.0.203  -p 9092:9092 --hostname kafka --name kafka registry.cn-hangzhou.aliyuncs.com/wyun/kafka:0.10.2.1_zk
 docker run -d --network test --ip 172.18.0.204  -p 5672:5672 -p 15672:15672 --hostname rabbit --name rabbit -e RABBITMQ_DEFAULT_VHOST=oo -e RABBITMQ_DEFAULT_USER=root -e RABBITMQ_DEFAULT_PASS=root rabbitmq:3.6.10-management
 #其他
+#docker run -d --network test --ip 172.18.0.199 --hostname kafkaBrokers --name kafkaBrokers --publish 9092:9092 --link zookeeper --env KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181 --env KAFKA_ADVERTISED_HOST_NAME=192.168.7.36 --env KAFKA_ADVERTISED_PORT=9092 wurstmeister/kafka:latest
 #docker run -d --network test --ip 172.18.0.205  -p 2181:2181 --hostname zookeeper --name zookeeper zookeeper:3.3
 #docker run -d --network test --ip 172.18.0.101  -p 8080:8080 --hostname dubboadmin --name dubboadmin -e REGISTRY_ADDRESS=zookeeper://172.18.0.205:2181 registry.cn-hangzhou.aliyuncs.com/glodonedu/dubbo_admin:2.5
