@@ -16,5 +16,6 @@ docker run -d --network test --ip 172.18.0.204  -p 5672:5672 -p 15672:15672 --ho
 #docker run -d --network test --ip 172.18.0.199 --hostname kafkaBrokers --name kafkaBrokers --publish 9092:9092 --link zookeeper --env KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181 --env KAFKA_ADVERTISED_HOST_NAME=192.168.7.36 --env KAFKA_ADVERTISED_PORT=9092 wurstmeister/kafka:latest
 #docker run -d --network test --ip 172.18.0.205  -p 2181:2181 --hostname zookeeper --name zookeeper zookeeper:3.3
 #docker run -d --network test --ip 172.18.0.206  -p 16010:16010 --hostname hbase --name hbase -v /opt/docker_volume/hbase:/hbase-data harisekhon/hbase:1.3
+#docker run -d --network test --ip 172.18.0.207  -p 28080-28082:28080-28082 --cap-add SYS_PTRACE --hostname pinpoint --name pinpoint -v /opt/docker_volume/pinpoint:/pinpoint yous/pinpoint
 
 #docker run -d --network test --ip 172.18.0.101  -p 8080:8080 --hostname dubboadmin --name dubboadmin -e REGISTRY_ADDRESS=zookeeper://172.18.0.205:2181 registry.cn-hangzhou.aliyuncs.com/glodonedu/dubbo_admin:2.5
